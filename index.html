@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1 class="title">Personal Expense Tracker</h1> <!-- Added this line -->
+
+    <div class="container" id="loginContainer">
+        <h2>Login</h2>
+        <input type="text" id="loginMobile" placeholder="Mobile Number">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+    </div>
+
+    <div class="container hidden" id="signupContainer">
+        <h2>Sign Up</h2>
+        <input type="text" id="signupName" placeholder="Full Name">
+        <input type="text" id="signupMobile" placeholder="Mobile Number">
+        <input type="password" id="signupPassword" placeholder="Password">
+        <button onclick="signup()">Sign Up</button>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
