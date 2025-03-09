@@ -1,4 +1,5 @@
-const API_URL = "https://your-backend-url.onrender.com/api/auth";
+
+const API_URL = "https://your-backend.onrender.com/api/auth"; // Replace this with your live backend URL from Render
 
 
 
