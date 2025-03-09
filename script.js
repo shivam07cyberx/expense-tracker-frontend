@@ -1,13 +1,12 @@
+const API_URL = "https://your-actual-backend-url.onrender.com/api/auth"; // Replace with your actual backend URL
 
-const API_URL = "https://your-backend.onrender.com/api/auth"; // Replace this with your live backend URL from Render
-
-
-
+// Show Signup
 function showSignup() {
     document.querySelector(".container").style.display = "none";
     document.getElementById("signupContainer").style.display = "block";
 }
 
+// Show Login
 function showLogin() {
     document.querySelector(".container").style.display = "block";
     document.getElementById("signupContainer").style.display = "none";
@@ -52,7 +51,6 @@ function signup() {
     })
     .catch(error => console.error("Error:", error));
 }
-
 
 // Login Function
 function login() {
