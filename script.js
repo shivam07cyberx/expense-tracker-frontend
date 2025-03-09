@@ -45,7 +45,7 @@ function signup() {
     .then(response => response.json())
     .then(data => {
         alert(data.message);
-        if (data.success) {  // ✅ Use success flag instead of message check
+        if (data.message === "User registered successfully") {  // Check for success message from backend
             showLogin();
         }
     })
@@ -54,9 +54,16 @@ function signup() {
 
 // Login Function
 function login() {
-    const mobile = document.getElementById("loginMobile").value;
-    const password = document.getElementById("loginPassword").value;
+    const mobile = document.getElementById("loginMobile").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
 
+    // ✅ Check if fields are empty
+    if (!mobile || !password) {
+        alert("Both fields are required!");
+        return;
+    }
+
+    // Proceed with API call if validation passes
     fetch(`${API_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -65,12 +72,18 @@ function login() {
     .then(response => response.json())
     .then(data => {
         if (data.message === "Login successful") {
+            // Store the token and user info in localStorage
             localStorage.setItem("token", data.token);
             localStorage.setItem("user", JSON.stringify(data.user));
+
+            // Redirect to dashboard after successful login
             window.location.href = "dashboard.html";
         } else {
             alert(data.message);
         }
     })
-    .catch(error => console.error("Error:", error));
+    .catch(error => {
+        console.error("Error:", error);
+        alert("An error occurred during login.");
+    });
 }
